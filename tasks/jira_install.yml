@@ -9,6 +9,7 @@
     mode: get
 
 - name: Register extraction destination
+  become: yes
   stat:
     path: "{{ jira_user_home_dir }}/{{ jira_filename }}-{{ jira_version }}-standalone"
   register: tar_dest
