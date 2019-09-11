@@ -1,0 +1,15 @@
+---
+- name: Jira groups
+  become: yes
+  become_user: root
+  become_method: sudo
+  group:
+    name: "{{ jira_group }}"
+
+- name: Default JIRA user and home
+  become: yes
+  user:
+    name: "{{ jira_user }}"
+    shell: "/bin/bash"
+    group: "{{ jira_group }}"
+    home: "{{ jira_user_home_dir }}"

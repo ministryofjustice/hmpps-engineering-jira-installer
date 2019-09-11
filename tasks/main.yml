@@ -1,0 +1,5 @@
+---
+# tasks file for jira-install
+- include: packages.yml
+- include: users.yml
+- include: jira_install.yml

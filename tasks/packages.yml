@@ -1,0 +1,26 @@
+---
+- name: Add MySQL 5.6 Yum Repo
+  become: yes
+  yum_repository:
+    name: mysql5.6
+    description: MySQL 5.6 Community Server
+    file: external_repos
+    baseurl: http://repo.mysql.com/yum/mysql-5.6-community/el/6/$basearch/
+    gpgcheck: no
+
+- name: Install MySQL
+  become: yes
+  yum:
+    name: mysql
+    enablerepo: mysql5.6
+    state: present
+
+- name: Install required packages
+  become: yes
+  yum:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - java-1.8.0-openjdk
+    - jq
+    - amazon-efs-utils
