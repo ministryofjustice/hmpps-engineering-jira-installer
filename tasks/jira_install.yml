@@ -2,7 +2,7 @@
 # Download from JIRA direct requires licence acceptance so get from s3 artefacts bucket
 - name: Get JIRA Install Tarball from S3
   become: yes
-  aws_s3:
+  s3:
     bucket: "{{ jira_artefact_bucket }}"
     object: "jira/{{ jira_filename }}-{{ jira_version }}.tar.gz"
     dest: "{{ jira_user_home_dir }}/{{ jira_filename }}-{{ jira_version }}.tar.gz"
