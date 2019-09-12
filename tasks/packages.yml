@@ -19,9 +19,11 @@
   become: yes
   yum:
     name: "{{ packages }}"
+    state: latest
   vars:
     packages:
     - java-1.8.0-openjdk
     - jq
     - amazon-efs-utils
     - awslogs
+    - amazon-ssm-agent
