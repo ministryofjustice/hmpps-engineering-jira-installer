@@ -11,9 +11,13 @@
 - name: Install MySQL
   become: yes
   yum:
-    name: mysql
+    name: "{{ mysql_packages }}"
     enablerepo: mysql5.6
     state: present
+  vars:
+    mysql_packages:
+    - mysql
+    - mysql-devel
 
 - name: Install required packages
   become: yes
@@ -25,3 +29,4 @@
     - jq
     - amazon-efs-utils
     - awslogs
+    - gcc
