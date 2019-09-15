@@ -30,3 +30,7 @@
     - amazon-efs-utils
     - awslogs
     - gcc
+
+- name: Install the Python MySQL module
+  pip: 
+    name: MySQL-python
