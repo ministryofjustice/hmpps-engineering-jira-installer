@@ -27,8 +27,8 @@
   become: yes
   aws_s3:
     bucket: "{{ jira_artefact_bucket }}"
-    object: "jira/mysql-connector-java-{{ mysql_connector_version }}-bin.jar "
-    dest: "{{ jira_user_home_dir }}/{{ jira_filename }}-{{ jira_version }}-standalone/lib"
+    object: "jira/mysql-connector-java-{{ mysql_connector_version }}-bin.jar"
+    dest: "{{ jira_user_home_dir }}/{{ jira_filename }}-{{ jira_version }}-standalone/lib/mysql-connector-java-{{ mysql_connector_version }}-bin.jar"
     mode: get
 
 
