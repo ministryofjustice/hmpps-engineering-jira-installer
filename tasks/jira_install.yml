@@ -22,6 +22,16 @@
     copy: no
   when: not tar_dest.stat.exists
 
+
+- name: Get MySQL Java Connector
+  become: yes
+  aws_s3:
+    bucket: "{{ jira_artefact_bucket }}"
+    object: "jira/mysql-connector-java-{{ mysql_connector_version }}-bin.jar "
+    dest: "{{ jira_user_home_dir }}/{{ jira_filename }}-{{ jira_version }}-standalone/lib"
+    mode: get
+
+
 - name: Update JIRA install directory permissions
   become: yes
   file:
@@ -38,3 +48,4 @@
     state: directory
     owner: "{{ jira_user }}"
     group: "{{ jira_group }}"
+
