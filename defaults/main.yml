@@ -2,6 +2,8 @@
 # defaults file for jira-install
 jira_group: jira
 jira_user: jira
+jira_gid: 2001
+jira_uid: 2001
 jira_user_home_dir: "/home/jira"
 jira_home: "/var/jira"
 jira_filename: "atlassian-jira"
