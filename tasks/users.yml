@@ -5,11 +5,13 @@
   become_method: sudo
   group:
     name: "{{ jira_group }}"
+    gid: "{{ jira_gid }}"
 
 - name: Default JIRA user and home
   become: yes
   user:
     name: "{{ jira_user }}"
+    uid: "{{ jira_uid }}"
     shell: "/bin/bash"
     group: "{{ jira_group }}"
     home: "{{ jira_user_home_dir }}"
